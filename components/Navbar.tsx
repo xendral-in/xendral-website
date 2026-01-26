@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             }}
           >
             <img
-              src="logo.svg"
+              src="/logo.svg"
               alt="Xendral"
               className="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
               onError={(e) => {
