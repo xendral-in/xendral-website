@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { countryCodes } from '../utils/countryCodes';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -117,20 +118,19 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">Mobile Number</label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <select
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all duration-200 disabled:opacity-50"
+                  className="w-full sm:w-32 px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all duration-200 disabled:opacity-50 text-sm"
                 >
-                  <option value="+91">+91 (India)</option>
-                  <option value="+1">+1 (US/Canada)</option>
-                  <option value="+44">+44 (UK)</option>
-                  <option value="+61">+61 (Australia)</option>
-                  <option value="+971">+971 (UAE)</option>
-                  <option value="+65">+65 (Singapore)</option>
+                  {countryCodes.map((country) => (
+                    <option key={country.code} value={country.code}>
+                      {country.flag} {country.code}
+                    </option>
+                  ))}
                 </select>
                 <input
                   type="tel"

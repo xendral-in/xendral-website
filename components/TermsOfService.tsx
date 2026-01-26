@@ -3,17 +3,17 @@ import { motion } from 'framer-motion';
 
 const TermsOfService: React.FC = () => {
   return (
-    <motion.section 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="py-32 bg-white min-h-screen"
+      className="py-32 bg-black min-h-screen"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-brand-dark mb-8">Terms of Service</h1>
-        <p className="text-slate-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
-        
-        <div className="prose prose-lg text-slate-600 max-w-none">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-8">Terms of Service</h1>
+        <p className="text-slate-400 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+
+        <div className="prose prose-lg text-slate-300 max-w-none">
           <p className="mb-6">
             These Terms of Service ("Terms") govern your access to and use of the Xendral website and services. By accessing or using our services, you agree to be bound by these Terms.
           </p>
