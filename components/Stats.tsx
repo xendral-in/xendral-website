@@ -3,14 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const stats = [
-  { label: 'Projects Done', value: '500+' },
-  { label: 'Projects Ongoing', value: '45+' },
-  { label: 'Team Members', value: '120+' },
+  { label: 'Projects Done', value: '10+' },
+  { label: 'Projects Ongoing', value: '2+' },
+  { label: 'Team Members', value: '10+' },
 ];
 
+// Partner tiles - each tile is 128px × 80px (w-32 h-20)
+// Recommended logo image size: 200px × 120px for crisp display
 const partners = [
-  'CloudNine', 'DataFlow', 'SecureLink', 'AI-Vision', 'WebWizards', 'AppMasters',
-  'CyberGuard', 'SoftSolution'
+  'Coming Soon', 'Coming Soon', 'Coming Soon', 'Coming Soon', 'Coming Soon', 'Coming Soon',
+  'Coming Soon', 'Coming Soon'
 ];
 
 const Stats: React.FC = () => {
@@ -72,7 +74,7 @@ const Stats: React.FC = () => {
 
               {/* Happy Business Partners */}
               <div className="text-center mb-8">
-                <h4 className="text-white font-bold text-lg mb-6">Trusted by Happy Business Partners</h4>
+                <h4 className="text-white font-bold text-lg mb-6">Our Happy Business Partners</h4>
               </div>
 
               {/* Horizontal Scroll Thumb Grid Style */}

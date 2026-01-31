@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-4 overflow-hidden bg-black">
+    <section id="home" className="relative min-h-[70vh] flex items-center justify-center pt-48 pb-4 overflow-hidden bg-black">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
         {/* Badge - No longer clickable */}
         <div className="mb-8 flex flex-col items-center">
           <span className="inline-block py-1 px-3 rounded-full bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-bold tracking-wider uppercase mb-2">
-            Next Generation IT Services
+            Engineering The Future
           </span>
         </div>
 

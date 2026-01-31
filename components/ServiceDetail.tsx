@@ -1,15 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Cpu, Settings } from 'lucide-react';
-
-export interface ServiceType {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  image?: string; // Made optional since we removed images
-  functionalStrategy?: string;
-  technicalStrategy?: string;
-}
+import { ServiceType } from '../data/services'; // Import from data file
 
 interface ServiceDetailProps {
   service: ServiceType;
@@ -39,15 +31,11 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Header Section */}
           <div className="lg:col-span-3">
-            {/* Replaced Icon logic with requested logo.png placeholder */}
+            {/* Render proper icon */}
             <div className="inline-flex items-center justify-center mb-6">
-              <img src="logo.png" alt="Service Logo" className="w-16 h-16 object-contain" onError={(e) => {
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  e.currentTarget.style.display = 'none';
-                  parent.innerHTML = `<div class="p-4 bg-brand-primary/10 rounded-2xl text-brand-primary"><svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>`;
-                }
-              }} />
+              <div className="p-4 bg-brand-primary/10 rounded-2xl text-brand-primary border border-brand-primary/20">
+                {service.icon && React.cloneElement(service.icon as React.ReactElement, { className: 'w-12 h-12' })}
+              </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">{service.title}</h1>
             <p className="text-xl text-slate-300 max-w-3xl">{service.description}</p>

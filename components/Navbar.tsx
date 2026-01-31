@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { PageType } from '../App';
 
 interface NavbarProps {
-  onNavigate: (page: PageType, sectionId?: string) => void;
+  onNavigate: (page: string, sectionId?: string) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
@@ -20,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   const handleNavClick = (sectionId: string) => {
     setIsOpen(false);
-    onNavigate('home', sectionId);
+    onNavigate('/', sectionId);
   };
 
   const navLinks = [
@@ -30,28 +29,35 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-xl shadow-2xl' : 'bg-black/70 backdrop-blur-md py-4'
-        }`}
-      style={isScrolled ? {
-        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba(193, 255, 114, 0.1)',
-        borderBottom: '1px solid rgba(193, 255, 114, 0.1)',
-        background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%)'
-      } : {}}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
+      style={{
+        background: isScrolled
+          ? 'linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%)'
+          : 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        boxShadow: isScrolled
+          ? '0 4px 30px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba(193, 255, 114, 0.1)'
+          : 'none',
+        borderBottom: isScrolled
+          ? '1px solid rgba(193, 255, 114, 0.1)'
+          : '1px solid transparent',
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo - Simplified, no background box or text */}
           <div
             className="flex-shrink-0 flex items-center cursor-pointer group"
             onClick={() => {
-              onNavigate('home');
+              onNavigate('/');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
             <img
               src="/logo.svg"
               alt="Xendral"
-              className="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+              className="h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 const fallback = document.createElement('span');

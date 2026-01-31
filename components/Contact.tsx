@@ -30,13 +30,13 @@ const Contact: React.FC = () => {
       if (!googleSheetsUrl) {
         // Fallback if Google Sheets URL is not configured
         console.warn('Google Sheets URL not configured');
-        setTimeout(() => {
-          setSubmitStatus('success');
-          setIsSubmitting(false);
-          setFormData({ name: '', email: '', countryCode: '+91', phone: '', project: '' });
-        }, 1000);
+        alert("Configuration Error: Google Sheets URL is missing in .env file."); // Visible feedback
+        setSubmitStatus('error');
+        setIsSubmitting(false);
         return;
       }
+
+      console.log("Submitting to:", googleSheetsUrl); // Debug log
 
       const response = await fetch(googleSheetsUrl, {
         method: 'POST',
